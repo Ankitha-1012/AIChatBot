@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # PrecisionWorks Conversational Order Management
 
 Hackathon-ready full-stack app with:
@@ -53,3 +54,6 @@ Frontend runs on `http://localhost:5173`.
 ## Database Used
 
 **SQLite** (file: `backend/data.sqlite`)
+=======
+# AIChatBot
+>>>>>>> 4fd9280c8edfd3fb180fb88dd91dfb6ee583ca7a

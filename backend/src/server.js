@@ -462,7 +462,6 @@ app.use((err, _req, res, _next) => {
   res.status(500).json({ message: "Server error", error: err?.message || "Unknown error" });
 });
 
-app.listen(PORT, () => {
-  ensureManagerSeed();
-  console.log(`Backend running on http://localhost:${PORT}`);
-});
+ensureManagerSeed();
+
+module.exports = app;

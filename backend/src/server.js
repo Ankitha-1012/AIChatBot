@@ -16,8 +16,25 @@ app.use(
   cors({
     origin: (origin, cb) => {
       if (!origin) return cb(null, true);
-      const ok = /^http:\/\/localhost:\d+$/.test(origin) || /^http:\/\/127\.0\.0\.1:\d+$/.test(origin);
-      return ok ? cb(null, true) : cb(new Error("CORS not allowed"), false);
+app.use(
+  cors({
+    origin: (origin, cb) => {
+      if (!origin) return cb(null, true);
+
+      const hostname = new URL(origin).hostname;
+
+      const ok =
+        /^http:\/\/localhost:\d+$/.test(origin) ||
+        /^http:\/\/127\.0\.0\.1:\d+$/.test(origin) ||
+        /vercel\.app$/.test(hostname);
+
+      return ok
+        ? cb(null, true)
+        : cb(new Error("CORS not allowed"), false);
+    },
+    credentials: true,
+  })
+);
     },
     credentials: true,
   })
